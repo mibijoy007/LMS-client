@@ -1,3 +1,4 @@
+import { Poppins } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -6,6 +7,8 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  // for darkmode using next-themes
+  darkMode: ["class"],
   theme: {
     extend: {
       backgroundImage: {
@@ -13,6 +16,18 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily:{
+        Poppins: ["var(--font-Poppins)"],
+        Josefin: ["var(--font-JosJosefine)"],
+      },
+      screens:{
+        "400px" : "400px",
+        "800px" : "800px",
+        "1000px" : "1000px",
+        "1200px" : "1200px",
+        "1500px" : "1500px",
+      },
+      
     },
   },
   plugins: [],
