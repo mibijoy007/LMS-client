@@ -28,8 +28,9 @@ const Nav: FC<Props> = ({activeItem,setOpen}) => {
   }
 
   const handleSidebarClose = (event: any ) =>{
+    // console.log("event.target======>>>",event.target.id);    
     if(event.target.id === "screen"){
-     { setOpenSidebar(false)}
+      setOpenSidebar(false)
     }
   }
 
@@ -47,6 +48,7 @@ const Nav: FC<Props> = ({activeItem,setOpen}) => {
               Learning
             </Link>
           </div>
+          
           <div className='flex items-center'>
             <NavItems 
             activeItem={activeItem}
@@ -55,17 +57,18 @@ const Nav: FC<Props> = ({activeItem,setOpen}) => {
             
             <ThemeSwitcher />
 
-            {/* for mobile */}
+            {/*Open sidebar for mobile */}
             <div className='800px:hidden border dark:border-white border-black rounded '>
-              
             <MdMenu
             size={25}
-            className='  cursor-pointer dark:text-white text-black'
+            className='cursor-pointer dark:text-white text-black'
             onClick={() =>{setOpenSidebar(true)}} 
             />
             </div>
+
+            {/* user-icon */}
             <FaRegUserCircle
-            className=' dark:text-white text-black cursor-pointer'
+            className=' dark:text-white text-black cursor-pointer ml-3'
             size={25}
             onClick={() => {setOpen(true)}}
             id="screen"
@@ -76,13 +79,15 @@ const Nav: FC<Props> = ({activeItem,setOpen}) => {
 
        </div>
 
-       {/* sidebar */}
+       {/*close sidebar for mobile */}
        {  openSidebar && (
        <div 
        className='fixed w-full h-screen top-0 left-0 z-[99999] dark:bg-[unset] bg-[#00000024]'
        onClick={handleSidebarClose}
+      //  this 'id' determines whether the sidebar will be closed to openned
+       id='screen'
        >
-        <div className="w-[70%] fixed z-[999999999] h-screen bg-white dark:bg-slate-900 dark:bg-opacity-90 top-0 right-0">
+        <div  className="w-[70%] fixed z-[999999999] h-screen bg-white dark:bg-slate-900 dark:bg-opacity-90 top-0 right-0">
           <NavItems 
           activeItem={activeItem}
           isMobile={true}
@@ -90,15 +95,18 @@ const Nav: FC<Props> = ({activeItem,setOpen}) => {
           {/* user icon */}
           <FaRegUserCircle
             className='ml-5 my-2 dark:text-white text-black cursor-pointer'
-            size={25}
+            size={30}
             onClick={() => {setOpen(true)}}
-            id="screen"
+            // id="screen" //==>> doesn't work on the "outline of the icon" only on the blank spaces
             />
+            
 
             <br />
             <br />
 
-            <p>By Learn dfdfffff</p>
+            <p className=' px-2 text-black dark:text-white text-[15px]'>
+            @ By Learn
+            </p>
 
              </div>
 

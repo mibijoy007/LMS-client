@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { BiMoon, BiSun } from 'react-icons/bi'
 
 const ThemeSwitcher = () => {
-    const [mounted, setMounted] = useState(false)
+    const [mounted, setMounted] = useState<boolean>(false)
     const {theme, setTheme} = useTheme()
 
     // useEffect(() => {setMounted(true)}, [])

@@ -32,8 +32,8 @@ interface Props{
 const NavItems:FC<Props> = ({activeItem,isMobile}) => {
   return (
     <>
-    <div>
-        { NavItemsData && NavItemsData.map((item,index)=>(
+    <div className='hidden 800px:flex'>
+        { NavItemsData && NavItemsData.map( (item,index)=>(
             <Link href={item.url} key={index} passHref>
                 <span className={`${ activeItem === index ?
                     "dark:text-[#37a30a] text-[crimson]"
@@ -44,20 +44,21 @@ const NavItems:FC<Props> = ({activeItem,isMobile}) => {
                 </span>
             </Link>
         ))}
-
     </div>
 
     { isMobile && (
         <div className='800px:hidden mt-5'>
             { NavItemsData && NavItemsData.map((item,index)=>(
             <Link href={item.url} key={index} passHref>
-                <span className={`${
+                <span className={` ${
                     activeItem === index ?
-                    "dark:text-[#37a30a] text-[crimson]"
-                    : "dark:text-white text-black"
-                }block py-5 text-[18px] px-6 font-Poppins font-[400]`}
+                    "dark:text-[#37a30a] text-[crimson]  "
+                    : "dark:text-white text-black " 
+                                    } 
+                block py-5 text-[18px] px-6 font-Poppins font-[400] `
+                         }
                 >
-                {item.title}
+                  {item.title}
                 </span>
             </Link>
         ))}

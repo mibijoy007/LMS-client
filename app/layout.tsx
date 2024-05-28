@@ -13,7 +13,7 @@ const poppins = Poppins({
 const josefin = Josefin_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-Josefin_Sans",
+  variable: "--font-Josefin",
 })
 
 export default function RootLayout({
